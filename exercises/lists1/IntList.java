@@ -9,17 +9,30 @@ public class IntList {
 
 	/** Return the size of the list using... recursion! */
 	public int size() {
-		return 0;
+		if (this.rest == null){
+			return 1;
+		} else {
+			return 1 + this.rest.size();
+		}
 	}
 
 	/** Return the size of the list using no recursion! */
 	public int iterativeSize() {
-		return 0;
+		int count = 0;
+		while (this != null) {
+			count += 1;
+			this.rest.iterativeSize();
+		}
+		return count;
 	}
 
 	/** Returns the ith value in this list.*/
 	public int get(int i) {
-		return 0;
+		if (i == 0){
+			return this.first;
+		} else {
+			return get(i - 1);
+		}
 	}
 
 	public static void main(String[] args) {
